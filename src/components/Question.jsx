@@ -11,7 +11,7 @@ function Question({ question, answer, dispatch }) {
           <button
             className={`btn btn-option ${i === answer ? 'answer' : ''} ${hasAnswered ? (i === question.correctOption ? 'correct' : ' wrong') : ''}`}
             key={option}
-            onClick={() => dispatch({ type: 'answered', payload: i })}
+            onClick={() => dispatch({ type: 'newAnswer', payload: i })}
             disabled={hasAnswered}
           >
             {option}
