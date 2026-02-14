@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useReducer,
 } from 'react';
-const initalState = {
+const initialState = {
   questions: [],
   status: 'loading',
   index: 0,
@@ -40,7 +40,7 @@ function reducer(state, action) {
     case 'finish':
       return { ...state, status: 'finished' };
     case 'restart':
-      return { ...initalState, questions: state.questions, status: 'ready' };
+      return { ...initialState, questions: state.questions, status: 'ready' };
     case 'tic':
       return {
         ...state,
@@ -59,7 +59,7 @@ function QuizProvider({ children }) {
   const [
     { questions, status, index, answer, points, secondRemaining },
     dispatch,
-  ] = useReducer(reducer, initalState);
+  ] = useReducer(reducer, initialState);
   const maxPossiblePoints = questions.reduce((acc, cur) => acc + cur.points, 0);
 
   const numOfQuestions = questions.length;
